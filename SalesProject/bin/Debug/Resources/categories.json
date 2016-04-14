@@ -1,0 +1,15 @@
+﻿[
+  {
+    "Id": 1,
+    "Name": "Electronics"
+  },
+  {
+    "Id": 2,
+    "Name": "Appliances"
+  },
+  {
+    "Id": 3,
+    "Name": "Sport"
+  }
+
+]

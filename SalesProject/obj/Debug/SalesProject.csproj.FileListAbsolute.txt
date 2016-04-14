@@ -1,0 +1,21 @@
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\bin\Debug\SalesProject.exe.config
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.csprojResolveAssemblyReference.cache
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\MainWindow.g.cs
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\App.g.cs
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\SalesProject_MarkupCompile.cache
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\SalesProject_MarkupCompile.lref
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\bin\Debug\SalesProject.exe
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\bin\Debug\SalesProject.pdb
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\MainWindow.baml
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.g.resources
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.Properties.Resources.resources
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.csproj.GenerateResource.Cache
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.exe
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\obj\Debug\SalesProject.pdb
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\bin\Debug\Resources\categories.json
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\bin\Debug\Newtonsoft.Json.dll
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\bin\Debug\Newtonsoft.Json.xml
+c:\users\xxrulixx\documents\visual studio 2015\Projects\SalesProject\SalesProject\bin\Debug\Resources\products.json
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\SalesProject.exe.config
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\SalesProject.exe
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\SalesProject.pdb
