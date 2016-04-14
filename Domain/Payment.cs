@@ -1,4 +1,6 @@
-﻿namespace Infrastructure
+﻿using Domain;
+
+namespace Infrastructure
 {
     class Payment : EntityClass
     {

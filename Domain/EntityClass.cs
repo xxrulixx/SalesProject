@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Infrastructure
+namespace Domain
 {
     public class EntityClass
     {
