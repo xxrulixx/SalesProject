@@ -8,6 +8,9 @@
         public int Qty { get; private set; }
         public string Description { get; private set; }
 
+        //Navigation Property
+        public Category Category { get; set; }
+
         protected internal Product()
         {
             

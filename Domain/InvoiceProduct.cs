@@ -12,6 +12,9 @@
         public float Price { get; private set; }
         public float Tax { get; private set; }
 
+        //navigation
+        public Invoice Invoice { get; set; }
+
         protected internal InvoiceProduct()
         {
             
