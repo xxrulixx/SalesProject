@@ -1,7 +1,12 @@
 ﻿namespace Domain
 {
-    class PaymentType : EntityClass
+    public class PaymentType : EntityBaseClass
     {
         public string Name { get; private set; }
+
+        protected internal PaymentType()
+        {
+            
+        }
     }
 }

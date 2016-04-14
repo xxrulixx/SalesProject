@@ -1,7 +1,15 @@
 ﻿namespace Domain
 {
-    class Category : EntityClass
+    public class Category : EntityBaseClass
     {
         public string Name { get; private set; }
+
+        protected internal Category()
+        {
+            
+        }
+    
     }
+
+    
 }

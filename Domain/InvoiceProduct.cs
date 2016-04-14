@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    class InvoiceProduct
+    public class InvoiceProduct
     {
         public int InvoiceId { get; private set; }
         public int ProductId { get; private set; }
@@ -12,5 +12,9 @@
         public float Price { get; private set; }
         public float Tax { get; private set; }
 
+        protected internal InvoiceProduct()
+        {
+            
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Domain
 {
-    public class EntityClass
+    public class EntityBaseClass
     {
         public int Id { get; private set; }
 

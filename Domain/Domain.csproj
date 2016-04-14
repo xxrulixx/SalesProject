@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
-    <Compile Include="EntityClass.cs" />
+    <Compile Include="EntityBaseClass.cs" />
     <Compile Include="Invoice.cs" />
     <Compile Include="InvoiceProduct.cs" />
     <Compile Include="Payment.cs" />
