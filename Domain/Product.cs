@@ -2,11 +2,11 @@
 {
     public class Product : EntityBaseClass
     {
-        public string Name { get; private set; }
-        public int CategoryId { get; private set; }
-        public float Price { get; private set; }
-        public int Qty { get; private set; }
-        public string Description { get; private set; }
+        public string Name { get;   set; }
+        public int CategoryId { get;   set; }
+        public float Price { get;   set; }
+        public int Qty { get;   set; }
+        public string Description { get; set; }
 
         //Navigation Property
         public Category Category { get; set; }

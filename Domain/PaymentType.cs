@@ -1,11 +1,13 @@
-﻿namespace Domain
+﻿using System.Collections.Generic;
+
+namespace Domain
 {
     public class PaymentType : EntityBaseClass
     {
-        public string Name { get; private set; }
+        public string Name { get;   set; }
 
         //navigation prop
-        public Payment Payment { get; set; }
+        public List<Payment> Payment { get; set; }
 
         protected internal PaymentType()
         {

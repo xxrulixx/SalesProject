@@ -4,7 +4,7 @@ namespace Domain
 {
     public class Category : EntityBaseClass
     {
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         // navigation
         public IList<Product> Products { get; set; }

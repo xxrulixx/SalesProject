@@ -1,0 +1,10 @@
+C:\Development\mygithub\SalesProject\Domain\bin\Debug\Domain.dll.config
+C:\Development\mygithub\SalesProject\Domain\bin\Debug\Domain.dll
+C:\Development\mygithub\SalesProject\Domain\bin\Debug\Domain.pdb
+C:\Development\mygithub\SalesProject\Domain\bin\Debug\EntityFramework.dll
+C:\Development\mygithub\SalesProject\Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Development\mygithub\SalesProject\Domain\bin\Debug\EntityFramework.xml
+C:\Development\mygithub\SalesProject\Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Development\mygithub\SalesProject\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\Development\mygithub\SalesProject\Domain\obj\Debug\Domain.dll
+C:\Development\mygithub\SalesProject\Domain\obj\Debug\Domain.pdb

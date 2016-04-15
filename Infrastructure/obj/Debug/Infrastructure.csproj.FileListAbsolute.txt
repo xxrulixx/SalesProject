@@ -1,0 +1,14 @@
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\Infrastructure.dll.config
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\Infrastructure.dll
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\Infrastructure.pdb
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\Domain.dll
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\EntityFramework.dll
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\Domain.pdb
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\EntityFramework.xml
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+C:\Development\mygithub\SalesProject\Infrastructure\obj\Debug\Infrastructure.csprojResolveAssemblyReference.cache
+C:\Development\mygithub\SalesProject\Infrastructure\obj\Debug\Infrastructure.dll
+C:\Development\mygithub\SalesProject\Infrastructure\obj\Debug\Infrastructure.pdb
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\Newtonsoft.Json.dll
+C:\Development\mygithub\SalesProject\Infrastructure\bin\Debug\Newtonsoft.Json.xml

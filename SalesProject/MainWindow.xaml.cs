@@ -1,6 +1,9 @@
 ﻿using System.Linq;
 using System.Windows;
+using Infrastructure;
 using SalesProject.Models;
+
+
 
 namespace SalesProject
 {
@@ -26,6 +29,12 @@ namespace SalesProject
             float subtotal = sales.Cart.Subtotal();
             sales.Cart.RemoveProduct(sales.Cart.CartProducts.Last());
             subtotal = sales.Cart.Subtotal();
+
+            SalesContext salesData = new SalesContext();
+            string text = salesData.Categories.FirstOrDefault().Name.ToString();
+            text = salesData.Categories.FirstOrDefault().Name.ToString();
+
+
 
         }           
 

@@ -1,19 +1,22 @@
-﻿namespace Domain
+﻿using System.Collections.Generic;
+
+namespace Domain
 {
-    public class InvoiceProduct
+    public class InvoiceProduct : EntityBaseClass
     {
-        public int InvoiceId { get; private set; }
-        public int ProductId { get; private set; }
-        public string ProductName { get; private set; }
-        public string ProductDescription { get; private set; }
-        public int CategoryId { get; private set; }
-        public string CategoryName { get; private set; }
-        public int Qty { get; private set; }
-        public float Price { get; private set; }
-        public float Tax { get; private set; }
+        public int InvoiceId { get;   set; }
+        public int ProductId { get;   set; }
+        public string ProductName { get;   set; }
+        public string ProductDescription { get;   set; }
+        public int CategoryId { get;   set; }
+        public string CategoryName { get;   set; }
+        public int Qty { get;   set; }
+        public float Price { get;   set; }
+        public float Tax { get;   set; }
 
         //navigation
-        public Invoice Invoice { get; set; }
+        public List<Invoice> Invoices { get; set; }
+        public List<Product> Products { get; set; }
 
         protected internal InvoiceProduct()
         {

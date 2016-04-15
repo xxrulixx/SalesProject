@@ -5,9 +5,9 @@ namespace Domain
 {
     public class Payment : EntityBaseClass
     {
-        public int PaymentTypeId { get; private set; }
-        public int InvoiceId { get; private set; }
-        public float Amount { get; private set; }
+        public int PaymentTypeId { get;   set; }
+        public int InvoiceId { get;   set; }
+        public float Amount { get;   set; }
 
         // navigation props
         public IList<PaymentType> PaymentTypes { get; set; }

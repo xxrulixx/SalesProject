@@ -45,7 +45,7 @@ namespace SalesProject.Models
        
         private void DialogWindow(string s)
         {
-            MessageBox.Show($"{s}", "Toy Bolao");
+           // MessageBox.Show($"{s}", "Toy Bolao");
         }
 
         private void OnCategoryListItemToggle(object sender, Category arg)
