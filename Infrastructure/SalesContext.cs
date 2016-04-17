@@ -9,20 +9,19 @@ namespace Infrastructure
 {
     public class SalesContext : DbContext
     {
-        public SalesContext() : base()
+        public SalesContext() : base("name=SalesContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
             Database.SetInitializer<SalesContext>(new SalesDbInitializer());// CreateDatabaseIfNotExists<SalesContext>());
             
         }
 
-       
-
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Invoice> Invoices { get; set; }
-        public DbSet<PaymentType> PaymentTypes { get; set; }
-        public DbSet<Payment> Payments { get; set; }
-        public DbSet<InvoiceProduct> InvoiceProducts { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<PaymentType> PaymentTypes { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<InvoiceProduct> InvoiceProducts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

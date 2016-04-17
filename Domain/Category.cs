@@ -7,7 +7,7 @@ namespace Domain
         public string Name { get; set; }
 
         // navigation
-        public IList<Product> Products { get; set; }
+        public virtual IList<Product> Products { get; set; }
         protected internal Category()
         {
             

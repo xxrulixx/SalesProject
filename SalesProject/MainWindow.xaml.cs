@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Windows;
 using Infrastructure;
+using Infrastructure.Mappings;
 using SalesProject.Models;
 
 
@@ -31,10 +32,16 @@ namespace SalesProject
             subtotal = sales.Cart.Subtotal();
 
             SalesContext salesData = new SalesContext();
-            string text = salesData.Categories.FirstOrDefault().Name.ToString();
-            text = salesData.Categories.FirstOrDefault().Name.ToString();
+            var lastCategory = salesData.Categories.Find(1).Name.ToString();
+            var lastProduct  = salesData.Products.Find(2).Name.ToString();
 
+            var unitOfWork = new UnitOfWork(new SalesContext());
+            var uofproducts = unitOfWork.Products.GetTopSellingProducts(2);
+            var uofcategories = unitOfWork.Categories.GetAll();
+            unitOfWork.Products.RemoveRange(unitOfWork.Products.GetTopSellingProducts(1));
+            unitOfWork.Complete();
 
+            lastProduct = uofproducts.Last().ToString();
 
         }           
 

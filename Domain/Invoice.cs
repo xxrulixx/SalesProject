@@ -11,8 +11,8 @@ namespace Domain
         public float Total { get;   set; }
 
         // navigation
-        public IList<Payment> Payments { get; set; }
-        public IList<InvoiceProduct> InvoiceProducts { get; set; }
+        public virtual IList<Payment> Payments { get; set; }
+        public virtual IList<InvoiceProduct> InvoiceProducts { get; set; }
 
 
         protected internal Invoice()
