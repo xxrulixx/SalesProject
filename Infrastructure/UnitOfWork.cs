@@ -7,7 +7,7 @@ using Infrastructure.Repositories;
 
 namespace Infrastructure.Mappings
 {
-    public class UnitOfWork : IUnitOfWork
+   public class UnitOfWork : IUnitOfWork
     {
         private readonly SalesContext _context;
         public void Dispose()

@@ -1,5 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media.Animation;
+using Domain;
+using Infrastructure;
+using Infrastructure.Mappings;
+using Infrastructure.Repositories;
 
 namespace SalesProject.Models
 {
@@ -13,18 +19,9 @@ namespace SalesProject.Models
             Products = new List<Product>();
         }
 
-        public void ProductsLoad()
+        public void ProductsLoad(IProductRepository productRepository)
         {
-            try
-            {
-                Products = Fixtures.GetProducts().ToList();
-            }
-            catch
-            {
-                // ignored
-            }
-
-            //ProductsLoaded?.Invoke(this, args);
+            Products = productRepository.GetAll().ToList();
         }
 
     }

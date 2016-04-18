@@ -12,6 +12,7 @@ namespace Infrastructure.Mappings
             HasMany(p => p.Products)
                 .WithRequired()
                 .HasForeignKey(p => p.CategoryId);
+            Ignore(c => c.Selected);
         }
     }
 

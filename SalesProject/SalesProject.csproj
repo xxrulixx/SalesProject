@@ -76,6 +76,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controller\ViewController.cs" />
     <Compile Include="Fixtures.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -84,13 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryList.cs" />
     <Compile Include="Models\ICart.cs" />
     <Compile Include="Models\ICategoryList.cs" />
     <Compile Include="Models\IProductList.cs" />
     <Compile Include="Models\ISalesScreen.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductList.cs" />
     <Compile Include="Models\SalesScreen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

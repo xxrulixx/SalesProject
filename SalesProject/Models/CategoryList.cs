@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain;
+using Infrastructure.Repositories;
 
 namespace SalesProject.Models
 {
@@ -20,17 +19,10 @@ namespace SalesProject.Models
         /// <summary>
         /// Load Categories from somewhere
         /// </summary>
-        public void CategoriesLoad()
+        public void CategoriesLoad(ICategoryRepository categoryRepository)
         {
-            try
-            {
-                Categories = Fixtures.GetCategories().ToList();
-            }
-            catch (Exception e)
-            {
-
-            }    
-         }
+            Categories = categoryRepository.GetAll().ToList();
+        }
 
         public void ToggleSelected(Category category)
         {
@@ -49,11 +41,6 @@ namespace SalesProject.Models
            
         }
 
-
-        public IEnumerator<Category> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     

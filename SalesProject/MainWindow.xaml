@@ -5,23 +5,112 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SalesProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="640">
-    <Grid Name="RootLayout">
-        
-        <Grid Name="SalesScreen" Column="3" Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+        Title="MainWindow" Height="480" Width="640" Background="#202020">
+    <Grid Name="RootLayout" Margin="5" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Sales Screen" 
+                FontSize="15" FontWeight="Bold"
+                Foreground="#AAAAAA"
+                Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"/>
+        <Grid Grid.Column="0" Grid.Row="1" Margin="5">
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-        </Grid>    
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="364,188,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Categories:" 
+                FontSize="12" FontWeight="Bold"
+                Foreground="#888888"
+                Grid.Column="0" Grid.Row="0"/>
+            <WrapPanel x:Name="CategoriesPanel" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
+                <ScrollViewer x:Name="CategoriesScrollViewer" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <ItemsControl ItemsSource="{Binding CategoriesObservableCollection}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ToggleButton Content="{Binding Path=Name}" Click="CategoryToggleButton_Click"/>
+                            </DataTemplate>
+                            
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+                </ScrollViewer>
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Products:" 
+                FontSize="12" FontWeight="Bold"
+                Foreground="#888888"
+                Grid.Column="0" Grid.Row="0" />
+            <WrapPanel x:Name="ProductsPanel" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
+                <ScrollViewer x:Name="ProductsScrollViewer" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <ItemsControl ItemsSource="{Binding ProductsObservableCollection}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Path=Name}" Click="ProductButton_Click"/>
+                            </DataTemplate>
+
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+                </ScrollViewer>
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Column="2" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Cart:" 
+                FontSize="12" FontWeight="Bold"
+                Foreground="#888888"
+                Grid.Column="0" Grid.Row="0" />
+            <Grid Grid.Column="0" Grid.Row="2">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Content="Subtotal:" 
+                FontSize="15" FontWeight="Bold"
+                Foreground="#888888"
+                Grid.Column="0" Grid.Row="0" />
+                <Label x:Name="SubtotalLabel" Content="0.00" 
+                FontSize="15" FontWeight="Bold"
+                Foreground="#888888"
+                Grid.Column="1" Grid.Row="0" 
+                       HorizontalAlignment="Right"/>
+
+
+            </Grid>
+        </Grid>
+        <Button x:Name="CartCompleteButton" Content="Complete!" Grid.Column="2"  Grid.Row="2"  Click="CartCompleteButton_Click" Margin="0" Background="#290000"
+                FontSize="20" FontWeight="Bold"
+                Foreground="#AAAAAA"/>
 
     </Grid>
 </Window>

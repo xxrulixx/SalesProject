@@ -1,7 +1,13 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Entity;
+using System.Linq;
 using System.Windows;
+using System.Windows.Controls.Primitives;
+using Domain;
 using Infrastructure;
 using Infrastructure.Mappings;
+using Infrastructure.Repositories;
 using SalesProject.Models;
 
 
@@ -13,43 +19,64 @@ namespace SalesProject
     /// </summary>
     public partial class MainWindow
     {
+        
+        public ObservableCollection<Category> CategoriesObservableCollection { get; set; }
+        public ObservableCollection<Product> ProductsObservableCollection { get; set; }
+        public SalesScreen salesScreen;
+
         public MainWindow()
         {
             InitializeComponent();
-            SalesScreen sales = new SalesScreen();
-            sales.InitializeSalesScreen();
+            
+            SalesContext mySalesContext = new SalesContext();
+            CategoryRepository myCategoryRepository = new CategoryRepository(mySalesContext);
+            ProductRepository myProductRepository = new ProductRepository(mySalesContext);
 
-            var tmpCategory = sales.CategoryList.Categories.First();
-            sales.ToggleCategory(tmpCategory);
+            salesScreen = new SalesScreen(myCategoryRepository, myProductRepository);
 
-            tmpCategory = sales.CategoryList.Categories.Find(c => c.Id == 2);
-            sales.ToggleCategory(tmpCategory);
+            salesScreen.CategoryListLoaded += (sender, list) =>
+                CategoriesObservableCollection = new ObservableCollection<Category>(list);
+            salesScreen.ProductListLoaded += (sender, list) =>
+            {
+                if (ProductsObservableCollection == null)
+                    ProductsObservableCollection = new ObservableCollection<Product>(list);
+                else
+                {
+                    ProductsObservableCollection.Clear();
+                    foreach (var product in list)
+                        ProductsObservableCollection.Add(product);
+                }
+            };
+                
 
-            sales.Cart.AddProduct(sales.VisibleProducts.First());
-            sales.Cart.AddProduct(sales.VisibleProducts.Last());
-            float subtotal = sales.Cart.Subtotal();
-            sales.Cart.RemoveProduct(sales.Cart.CartProducts.Last());
-            subtotal = sales.Cart.Subtotal();
 
-            SalesContext salesData = new SalesContext();
-            var lastCategory = salesData.Categories.Find(1).Name.ToString();
-            var lastProduct  = salesData.Products.Find(2).Name.ToString();
+            
 
-            var unitOfWork = new UnitOfWork(new SalesContext());
-            var uofproducts = unitOfWork.Products.GetTopSellingProducts(2);
-            var uofcategories = unitOfWork.Categories.GetAll();
-            unitOfWork.Products.RemoveRange(unitOfWork.Products.GetTopSellingProducts(1));
-            unitOfWork.Complete();
 
-            lastProduct = uofproducts.Last().ToString();
+            salesScreen.InitializeSalesScreen();
 
+            
+                       
+
+            DataContext = this;
         }           
 
-       
+        private void CartCompleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void CategoryToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (ToggleButton) sender;
+            var category = (Category) button.DataContext;
+            salesScreen.ToggleCategory(category);
+        }
+
+        private void ProductButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
     }
 }

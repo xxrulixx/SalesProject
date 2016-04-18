@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Infrastructure
 {
-    public class SalesDbInitializer : DropCreateDatabaseIfModelChanges<SalesContext>
+    public class SalesDbInitializer : DropCreateDatabaseAlways<SalesContext>
     {
         protected override void Seed(SalesContext context)
         {

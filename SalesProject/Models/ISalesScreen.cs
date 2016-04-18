@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using Domain;
 
 namespace SalesProject.Models
 {
@@ -23,6 +25,7 @@ namespace SalesProject.Models
 
         void ToggleCategory(Category category);
 
+        
 
     }
 }

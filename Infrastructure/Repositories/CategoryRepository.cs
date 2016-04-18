@@ -20,5 +20,14 @@ namespace Infrastructure.Repositories
                 return Context as SalesContext;
             }
         }
+
+        public IEnumerable<Category> GetCategoriesWithProducts()
+        {
+            return SalesContext.Categories
+                .Include(c => c.Products)
+                .OrderBy(c => c.Name)
+                .ToList();
+
+        }
     }
 }

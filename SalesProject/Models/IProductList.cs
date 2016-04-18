@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Domain;
+using Infrastructure.Repositories;
 
 namespace SalesProject.Models
 {
@@ -6,6 +8,6 @@ namespace SalesProject.Models
     {
        List<Product> Products { get; set; }
        List<Product> VisibleProducts { get; set; }
-       void ProductsLoad();
+       void ProductsLoad(IProductRepository productRepository);
     }
 }

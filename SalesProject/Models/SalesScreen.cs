@@ -2,11 +2,17 @@
 using System.Linq;
 using System.Windows;
 using System.Collections.Generic;
+using System.Data.Entity;
+using Domain;
+using Infrastructure.Repositories;
 
 namespace SalesProject.Models
 {
-    class SalesScreen : ISalesScreen
+    public class SalesScreen : ISalesScreen
     {
+        private ICategoryRepository _categoryRepository;
+        private IProductRepository _productRepository;
+
         public ICart Cart  { get; set; }
         
         public ICategoryList CategoryList { get; private set; }
@@ -19,89 +25,50 @@ namespace SalesProject.Models
 
         public List<Product> VisibleProducts { get; set; } 
 
-        public SalesScreen()
+        public SalesScreen(ICategoryRepository categoryRepository, IProductRepository productRepository)
         {
             CategoryList = new CategoryList();
-            ProductList = new ProductList();
-            VisibleProducts = new List<Product>();
-            Cart = new Cart();
+            ProductList  = new ProductList();
+            _categoryRepository = categoryRepository;
+            _productRepository  = productRepository;
+
         }
         public void InitializeSalesScreen()
         {
-            CategoryListLoaded += OnCategoryListLoaded;
-            CategoryListItemToggle += OnCategoryListItemToggle;
-
-            ProductListLoaded += OnProductListLoaded;
-
             LoadCategories();
             LoadProducts();
             VisibleProducts = ProductList.Products;
-            
-            
-
-
-        }
-
-       
-        private void DialogWindow(string s)
-        {
-           // MessageBox.Show($"{s}", "Toy Bolao");
-        }
-
-        private void OnCategoryListItemToggle(object sender, Category arg)
-        {
-            UpdateVisibleProducts();
-            DialogWindow($"La categoria que se marco en este momento fue {arg.Name}");
         }
 
         public void UpdateVisibleProducts()
         {
             var categoryIds = CategoryList.Categories.Where(p => p.Selected).Select(p => p.Id);
             VisibleProducts = ProductList.Products.FindAll(p => categoryIds.Contains(p.CategoryId));
+            ProductListLoaded?.Invoke(this, VisibleProducts);
         }
 
         public void ToggleCategory(Category category)
         {
-            if (CategoryList.Categories.Contains(category))
-            {
-                CategoryList.ToggleSelected(category);
-            }
-            CategoryListItemToggle?.Invoke(this, category);
+            CategoryList.ToggleSelected(category);
+            UpdateVisibleProducts();
+
+            
         }
 
         public void LoadCategories()
         {
-            CategoryList.CategoriesLoad();
+            CategoryList.Categories = _categoryRepository.GetAll().ToList();
             if (CategoryList.Categories.Any())
                 CategoryListLoaded?.Invoke(this, CategoryList.Categories);
         }
 
         public void LoadProducts()
         {
-            ProductList.ProductsLoad();
-            
+            ProductList.Products = _productRepository.GetAll().ToList();
             if (ProductList.Products.Any())
                 ProductListLoaded?.Invoke(this,ProductList.Products);
         }
 
 
-        protected virtual void OnCategoryListLoaded(object sender, List<Category> arg)
-        {
-            if (arg == null) return;
-            DialogWindow($"Categorio Lista: {arg[0].Name}");
-        }
-
-        protected virtual void OnProductListLoaded(object sender, List<Product> arg)
-        {
-            if (arg == null) return;
-            DialogWindow($"Producto Lista : {arg[0].Name}");
-        }
-
-        protected virtual void OnProductClicked(object sender, Product arg)
-        {
-            if (arg == null) return;
-            Cart.AddProduct(arg);
-            DialogWindow($"Se adiciono al carrito el producto:{arg.Name}");
-        }
     }
 }
