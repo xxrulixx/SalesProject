@@ -22,21 +22,20 @@ namespace SalesProject
         
         public ObservableCollection<Category> CategoriesObservableCollection { get; set; }
         public ObservableCollection<Product> ProductsObservableCollection { get; set; }
-        public SalesScreen salesScreen;
+        public ISalesScreen MySalesScreen;
 
         public MainWindow()
         {
             InitializeComponent();
-            
-            SalesContext mySalesContext = new SalesContext();
-            CategoryRepository myCategoryRepository = new CategoryRepository(mySalesContext);
-            ProductRepository myProductRepository = new ProductRepository(mySalesContext);
 
-            salesScreen = new SalesScreen(myCategoryRepository, myProductRepository);
+            DependencyInjection.Initialize();
 
-            salesScreen.CategoryListLoaded += (sender, list) =>
+            MySalesScreen = DependencyInjection.Container.GetInstance<ISalesScreen>();
+
+
+            MySalesScreen.CategoryListLoaded += (sender, list) =>
                 CategoriesObservableCollection = new ObservableCollection<Category>(list);
-            salesScreen.ProductListLoaded += (sender, list) =>
+            MySalesScreen.ProductListLoaded += (sender, list) =>
             {
                 if (ProductsObservableCollection == null)
                     ProductsObservableCollection = new ObservableCollection<Product>(list);
@@ -47,17 +46,11 @@ namespace SalesProject
                         ProductsObservableCollection.Add(product);
                 }
             };
-                
 
-
+            MySalesScreen.InitializeSalesScreen();
+           
+    
             
-
-
-            salesScreen.InitializeSalesScreen();
-
-            
-                       
-
             DataContext = this;
         }           
 
@@ -70,7 +63,7 @@ namespace SalesProject
         {
             var button = (ToggleButton) sender;
             var category = (Category) button.DataContext;
-            salesScreen.ToggleCategory(category);
+            MySalesScreen.ToggleCategory(category);
         }
 
         private void ProductButton_Click(object sender, RoutedEventArgs e)

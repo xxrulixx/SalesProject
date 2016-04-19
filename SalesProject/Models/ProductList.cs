@@ -11,17 +11,19 @@ namespace SalesProject.Models
 {
     public class ProductList : IProductList
     {
+        private IProductRepository _productRepository;
         public List<Product> Products { get; set; }
         public List<Product> VisibleProducts { get; set; }
 
-        public ProductList()
+        public ProductList(IProductRepository productRepository)
         {
+            _productRepository = productRepository;
             Products = new List<Product>();
         }
 
-        public void ProductsLoad(IProductRepository productRepository)
+        public void LoadProducts()
         {
-            Products = productRepository.GetAll().ToList();
+            Products = _productRepository.GetAll().ToList();
         }
 
     }

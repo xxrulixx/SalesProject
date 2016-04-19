@@ -42,3 +42,5 @@ C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Infrastructure.dll
 C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Domain.dll
 C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Infrastructure.pdb
 C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Domain.pdb
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\SimpleInjector.dll
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\SimpleInjector.xml

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics.Eventing.Reader;
 using Domain;
 using Infrastructure.Repositories;
 
@@ -15,8 +16,8 @@ namespace SalesProject.Models
 
         public ICart Cart  { get; set; }
         
-        public ICategoryList CategoryList { get; private set; }
-        public IProductList ProductList { get; private set; }
+        private ICategoryList CategoryList { get;  set; }
+        private IProductList ProductList { get;  set; }
 
         public event EventHandler<List<Category>> CategoryListLoaded;
         public event EventHandler<Category> CategoryListItemToggle;
@@ -25,12 +26,10 @@ namespace SalesProject.Models
 
         public List<Product> VisibleProducts { get; set; } 
 
-        public SalesScreen(ICategoryRepository categoryRepository, IProductRepository productRepository)
+        public SalesScreen(ICategoryList categoryList, IProductList productList)
         {
-            CategoryList = new CategoryList();
-            ProductList  = new ProductList();
-            _categoryRepository = categoryRepository;
-            _productRepository  = productRepository;
+            CategoryList = categoryList;
+            ProductList = productList;
 
         }
         public void InitializeSalesScreen()
@@ -43,7 +42,11 @@ namespace SalesProject.Models
         public void UpdateVisibleProducts()
         {
             var categoryIds = CategoryList.Categories.Where(p => p.Selected).Select(p => p.Id);
-            VisibleProducts = ProductList.Products.FindAll(p => categoryIds.Contains(p.CategoryId));
+            if (categoryIds.Any())
+                VisibleProducts = ProductList.Products.FindAll(p => categoryIds.Contains(p.CategoryId));
+            else
+                VisibleProducts = ProductList.Products.ToList();
+              
             ProductListLoaded?.Invoke(this, VisibleProducts);
         }
 
@@ -51,20 +54,19 @@ namespace SalesProject.Models
         {
             CategoryList.ToggleSelected(category);
             UpdateVisibleProducts();
-
-            
         }
 
         public void LoadCategories()
         {
-            CategoryList.Categories = _categoryRepository.GetAll().ToList();
+            CategoryList.LoadCategories();
+            
             if (CategoryList.Categories.Any())
                 CategoryListLoaded?.Invoke(this, CategoryList.Categories);
         }
 
         public void LoadProducts()
         {
-            ProductList.Products = _productRepository.GetAll().ToList();
+            ProductList.LoadProducts();
             if (ProductList.Products.Any())
                 ProductListLoaded?.Invoke(this,ProductList.Products);
         }

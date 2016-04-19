@@ -7,8 +7,8 @@ namespace SalesProject.Models
 {
     public interface ISalesScreen
     {
-        ICategoryList CategoryList { get; }
-        IProductList ProductList { get; }
+    //    ICategoryList CategoryList { get; }
+       // IProductList ProductList { get; }
         ICart Cart { get; set; }
 
         event EventHandler<List<Category>> CategoryListLoaded;

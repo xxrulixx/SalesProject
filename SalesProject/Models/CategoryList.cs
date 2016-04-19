@@ -7,21 +7,23 @@ namespace SalesProject.Models
 {
     public class CategoryList : ICategoryList
     {
+        private readonly ICategoryRepository _categoryRepository;
 
         public List<Category> Categories { get; set; }
 
-        public CategoryList()
+        public CategoryList(ICategoryRepository categoryRepository)
         {
-             Categories = new List<Category>();
+            _categoryRepository = categoryRepository;
+            Categories = new List<Category>();
         }
 
 
         /// <summary>
         /// Load Categories from somewhere
         /// </summary>
-        public void CategoriesLoad(ICategoryRepository categoryRepository)
-        {
-            Categories = categoryRepository.GetAll().ToList();
+        public void LoadCategories()
+        { 
+            Categories = _categoryRepository.GetAll().ToList();
         }
 
         public void ToggleSelected(Category category)

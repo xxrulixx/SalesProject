@@ -7,7 +7,7 @@ namespace SalesProject.Models
     public interface ICategoryList
     {
         List<Category> Categories { get; set; }
-        void CategoriesLoad(ICategoryRepository categoryRepository);
+        void LoadCategories();
         void ToggleSelected(Category category);
     }
 }

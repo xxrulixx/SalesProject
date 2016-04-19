@@ -8,6 +8,6 @@ namespace SalesProject.Models
     {
        List<Product> Products { get; set; }
        List<Product> VisibleProducts { get; set; }
-       void ProductsLoad(IProductRepository productRepository);
+       void LoadProducts();
     }
 }
