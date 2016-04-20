@@ -16,8 +16,8 @@ namespace SalesProject.Models
 
         public ICart Cart  { get; set; }
         
-        private ICategoryList CategoryList { get;  set; }
-        private IProductList ProductList { get;  set; }
+        public ICategoryList CategoryList { get;  set; }
+        public IProductList ProductList { get;  set; }
 
         public event EventHandler<List<Category>> CategoryListLoaded;
         public event EventHandler<Category> CategoryListItemToggle;

@@ -30,11 +30,9 @@ C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\EntityFramework.xml
 C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\EntityFramework.SqlServer.xml
 C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Newtonsoft.Json.xml
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\SalesProject.csprojResolveAssemblyReference.cache
-C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\MainWindow.g.cs
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\App.g.cs
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\SalesProject_MarkupCompile.cache
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\SalesProject_MarkupCompile.lref
-C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\MainWindow.baml
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\SalesProject.g.resources
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\SalesProject.Properties.Resources.resources
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\SalesProject.csproj.GenerateResource.Cache
@@ -44,3 +42,14 @@ C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Infrastructure.pdb
 C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Domain.pdb
 C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\SimpleInjector.dll
 C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\SimpleInjector.xml
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Caliburn.Micro.dll
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Caliburn.Micro.Platform.Core.dll
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Caliburn.Micro.Platform.dll
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\System.Windows.Interactivity.dll
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Caliburn.Micro.xml
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Caliburn.Micro.Platform.xml
+C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Caliburn.Micro.Platform.Core.xml
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\App.baml
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\ShellView.g.cs
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\ShellView.baml

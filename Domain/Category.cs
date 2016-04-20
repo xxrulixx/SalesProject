@@ -4,6 +4,7 @@ namespace Domain
 {
     public class Category : EntityBaseClass
     {
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public bool Selected { get; set; }
@@ -13,7 +14,12 @@ namespace Domain
         {
             
         }
-    
+
+        public Category(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 
     
