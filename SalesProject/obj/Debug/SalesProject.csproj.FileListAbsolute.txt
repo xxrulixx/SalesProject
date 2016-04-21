@@ -53,3 +53,7 @@ C:\Development\mygithub\SalesProject\SalesProject\bin\Debug\Caliburn.Micro.Platf
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\App.baml
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\ShellView.g.cs
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\ShellView.baml
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\CategoryListView.g.cs
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\CategoryListView.baml
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\ProductListView.g.cs
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\ProductListView.baml

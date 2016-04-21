@@ -12,15 +12,7 @@ namespace SalesProject.Models
         ICart Cart { get; set; }
         List<Product> VisibleProducts { get; set; }
 
-        event EventHandler<List<Category>> CategoryListLoaded;
-        event EventHandler<Category> CategoryListItemToggle;
-        event EventHandler<List<Product>> ProductListLoaded;
-        event EventHandler<Product> ProductClicked;
-
         void InitializeSalesScreen();
-
-        void LoadCategories();
-        void LoadProducts();
 
         void UpdateVisibleProducts();
 

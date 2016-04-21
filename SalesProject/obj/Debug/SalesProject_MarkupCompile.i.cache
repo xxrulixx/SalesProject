@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Development\mygithub\SalesProject\SalesProject\App.xaml
-1-250345876
+31926913096
 
-21224983446
+27-732725063
 75655798991
-Views\ShellView.xaml;
+Views\CategoryListView.xaml;Views\ProductListView.xaml;Views\ShellView.xaml;
 
-False
+True
 

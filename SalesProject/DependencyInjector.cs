@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Caliburn.Micro;
 using Infrastructure.Repositories;
 using SalesProject.Models;
+using SalesProject.ViewModels;
 using SimpleInjector;
 
 namespace SalesProject
@@ -30,9 +31,10 @@ namespace SalesProject
             Container.Register<IProductList, ProductList>();
             Container.Register<ISalesScreen, SalesScreen>();
 
-            Container.Register<IWindowManager, WindowManager>();
+            Container.RegisterSingleton<IWindowManager, WindowManager>();
             Container.RegisterSingleton<IEventAggregator, EventAggregator>();
 
+            Container.Register<CategoryListViewModel>();
 
 
         }

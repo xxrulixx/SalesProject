@@ -1,62 +1,55 @@
-﻿using System;
-using System.Windows.Controls.Primitives;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Caliburn.Micro;
 using Domain;
 using SalesProject.Models;
 
 namespace SalesProject.ViewModels
 {
-    public class ShellViewModel : PropertyChangedBase
+    public class ShellViewModel : PropertyChangedBase, IHandle<CategoryClickedEvent>
     {
-        protected ISalesScreen MySalesScreen;
+        private readonly IEventAggregator _events;
+        public ISalesScreen MySalesScreen;
 
-        public BindableCollection<Category> Categories { get; set; }
-        public BindableCollection<Product> Products { get; set; }
+        public CategoryListViewModel CategoryListViewModel { get; set; }
+        public ProductListViewModel ProductListViewModel { get; set; }
+        
 
-        public void ToggleCategory(object sender, EventArgs e)
+        public ShellViewModel(ISalesScreen mySalesScreen, CategoryListViewModel categoryListViewModel,
+                              ProductListViewModel productListViewModel, IEventAggregator events)
         {
-            var button = (ToggleButton)sender;
-            var category = (Category)button.DataContext;
-            MySalesScreen.ToggleCategory(category);
-        }
-
-        public ShellViewModel(ISalesScreen mySalesScreen)
-        {
-
             MySalesScreen = mySalesScreen;
-            //MySalesScreen = DependencyInjector.Container.GetInstance<ISalesScreen>();
+            CategoryListViewModel = categoryListViewModel;
+            ProductListViewModel = productListViewModel;
 
-            MySalesScreen.CategoryListLoaded += (sender, list) =>
-            {
-                Categories = new BindableCollection<Category>(list);
-                NotifyOfPropertyChange(() => Categories);
-              
-            };
-            
-            MySalesScreen.ProductListLoaded += (sender, list) =>
-            {
-                Products = new BindableCollection<Product>(list);
-                NotifyOfPropertyChange(() => Products);
-            };
-
-            
-
+            _events = events;
 
             MySalesScreen.InitializeSalesScreen();
-            
+            LoadCategories();
+            LoadProducts();
+
+            events.Subscribe(this);
         }
 
-
-        #region Actions
-
-        public void CategoryClicked(Category category)
+        private void LoadCategories()
         {
-            MySalesScreen.CategoryList.ToggleSelected(category);
+            MySalesScreen.CategoryList.LoadCategories();
+            _events.PublishOnUIThread(new CategoriesLoadedEvent(MySalesScreen.CategoryList.Categories));
         }
 
+        private void LoadProducts()
+        {
+            MySalesScreen.ProductList.LoadProducts();
+            _events.PublishOnUIThread(new ProductsLoadedEvent(MySalesScreen.ProductList.Products));
+        }
 
-        #endregion
+        public void Handle(CategoryClickedEvent message)
+        {
+            MySalesScreen.CategoryList.ToggleSelected(message.Category);
+            MySalesScreen.UpdateVisibleProducts();
+            _events.PublishOnUIThread(new ProductsLoadedEvent(MySalesScreen.VisibleProducts));
 
+        }
     }
 
    
