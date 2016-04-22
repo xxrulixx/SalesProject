@@ -1,0 +1,44 @@
+﻿[
+  {
+    "CategoryId": "1",
+    "Id": "1",
+    "Name": "Laptop",
+    "Price": "500.00",
+    "Qty": "3"
+  },
+  {
+    "CategoryId": "2",
+    "Id": "2",
+    "Name": "Kitchen",
+    "Price": "600",
+    "Qty": "5"
+  },
+  {
+    "CategoryId": "3",
+    "Id": "3",
+    "Name": "Ball",
+    "Price": "20",
+    "Qty": "5"
+  },
+  {
+    "CategoryId": "1",
+    "Id": 4,
+    "Name": "Mouse",
+    "Price": "15",
+    "Qty": "10"
+  },
+  {
+    "CategoryId": "2",
+    "Id": 5,
+    "Name": "Freezer",
+    "Price": "1200",
+    "Qty": "6"
+  },
+  {
+    "CategoryId": "3",
+    "Id": 6,
+    "Name": "Bat",
+    "Price": "39",
+    "Qty": "50"
+  }
+]

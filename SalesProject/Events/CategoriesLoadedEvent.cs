@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Domain;
 
-namespace SalesProject.ViewModels
+namespace SalesProject.Events
 {
     public class CategoriesLoadedEvent
     {
-        public List<Category> CategoriesLoaded { get; private set; }
+        public List<Category> CategoriesLoaded { get; set; }
 
         public CategoriesLoadedEvent(List<Category> categories)
         {

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Controls.Primitives;
 using Caliburn.Micro;
 using Domain;
+using SalesProject.Events;
 using SalesProject.Models;
 
 namespace SalesProject.ViewModels

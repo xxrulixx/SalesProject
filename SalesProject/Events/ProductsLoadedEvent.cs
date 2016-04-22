@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Domain;
 
-namespace SalesProject.ViewModels
+namespace SalesProject.Events
 {
     public class ProductsLoadedEvent
     {

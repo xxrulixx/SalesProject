@@ -2,6 +2,7 @@
 using System.Linq;
 using Caliburn.Micro;
 using Domain;
+using SalesProject.Events;
 using SalesProject.Models;
 
 namespace SalesProject.ViewModels

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Core;
 using System.Linq;
 using Domain;
 using Infrastructure.Repositories;
@@ -13,6 +15,9 @@ namespace SalesProject.Models
 
         public CategoryList(ICategoryRepository categoryRepository)
         {
+            if (categoryRepository == null)
+                throw new ArgumentNullException();
+            
             _categoryRepository = categoryRepository;
             Categories = new List<Category>();
         }
@@ -22,18 +27,19 @@ namespace SalesProject.Models
         /// Load Categories from somewhere
         /// </summary>
         public void LoadCategories()
-        { 
+        {
             Categories = _categoryRepository.GetAll().ToList();
         }
 
         public void ToggleSelected(Category category)
         {
-            if (Categories.Contains(category))
-            {
-                category.Selected = !category.Selected;
-            }
-            //else
-            //    throw NotFound();
+            if (category == null)
+                throw new ArgumentNullException();
+
+            if (!Categories.Contains(category))
+                throw new ObjectNotFoundException();
+
+            category.Selected = !category.Selected;
         }
 
 
