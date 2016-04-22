@@ -41,7 +41,11 @@ namespace SalesProject.Models
         {
             var categoryIds = CategoryList.Categories.Where(p => p.Selected).Select(p => p.Id);
             if (categoryIds.Any())
-                VisibleProducts = ProductList.Products.FindAll(p => categoryIds.Contains(p.CategoryId));
+            {
+                VisibleProducts.Clear();
+                foreach (var cat in categoryIds)
+                    VisibleProducts.AddRange(ProductList.GetProductsByCategoryId(cat));
+            }
             else
                 VisibleProducts = ProductList.Products.ToList();
         }
