@@ -43,11 +43,6 @@ namespace SalesProject.Models
         }
 
 
-        public void ToggleCategorySelect(Category category)
-        {
-            category.Selected = !category.Selected;
-           
-        }
 
     }
 

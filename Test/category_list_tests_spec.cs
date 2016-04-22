@@ -35,7 +35,6 @@ namespace Test.Nspec.Debugging
 
         void when_creating_it()
         {
-
             context["with invalid parameters"] = () =>
             {
                 it["should not allow a null category list repository"] = () =>
@@ -53,11 +52,10 @@ namespace Test.Nspec.Debugging
                     categoryList.Categories.should_not_be(null);
                 };
             };
-
         }
 
         
-        void when_locading_categories()
+        void when_loading_categories()
         {
 
             before = () =>
@@ -106,51 +104,6 @@ namespace Test.Nspec.Debugging
             };
 
         }
-
-
-        //void given_a_new_categorylist()
-        //{
-           
-
-        //    it["should have count of 0"] = () => categoryList.Categories.Count().should_be(0);
-        //}
-
-        //void given_a_categorylist_with_3_categories()
-        //{
-        //    before = () =>
-        //    {
-        //        categoryList = new CategoryList(_categoryRepositoryMock.Object);
-        //        categoryList.Categories.AddRange(categories);
-        //    };
-
-        //    it["should have a count of 3"] = () => categoryList.Categories.Count.should_be(3);
-        //    context["removing last item"] = () =>
-        //    {
-        //        it["should have a count of 2"] = () =>
-        //        {
-        //            categoryList.Categories.Remove(categoryList.Categories.Last());
-        //            categoryList.Categories.Count().should_be(2);
-        //        };
-        //    };
-        //    context["accessing concise data"] = () =>
-        //    {
-        //        it["first item name should be Electronics"] =
-        //            () => categoryList.Categories.First().Name.should_be("Electronics");
-
-        //    };
-        //    context["selecting an deselecting categories"] = () =>
-        //    {
-        //        it["last category should be NOT-selected"] =
-        //            () => categoryList.Categories.Last().Selected.should_be(false);
-        //        categoryList.ToggleSelected(categoryList.Categories.Last());
-        //        it["just toggled last category selected state, now selected should be true"] =
-        //            () => categoryList.Categories.Last().Selected.should_be(true);
-        //    };
-
-        //}
-
-
-
 
     }
 }

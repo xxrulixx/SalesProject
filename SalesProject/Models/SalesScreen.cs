@@ -23,9 +23,11 @@ namespace SalesProject.Models
 
         public SalesScreen(ICategoryList categoryList, IProductList productList)
         {
+            if (categoryList == null || productList == null)
+                throw new ArgumentNullException();
+
             CategoryList = categoryList;
             ProductList = productList;
-
         }
         public void InitializeSalesScreen()
         {

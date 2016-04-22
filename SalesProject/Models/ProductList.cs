@@ -1,10 +1,7 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Media.Animation;
 using Domain;
-using Infrastructure;
-using Infrastructure.Mappings;
 using Infrastructure.Repositories;
 
 namespace SalesProject.Models
@@ -13,10 +10,10 @@ namespace SalesProject.Models
     {
         private IProductRepository _productRepository;
         public List<Product> Products { get; set; }
-        public List<Product> VisibleProducts { get; set; }
 
         public ProductList(IProductRepository productRepository)
         {
+            if (productRepository == null) throw new ArgumentNullException();
             _productRepository = productRepository;
             Products = new List<Product>();
         }
@@ -26,5 +23,9 @@ namespace SalesProject.Models
             Products = _productRepository.GetAll().ToList();
         }
 
+        public IEnumerable<Product> GetProductsByCategoryId(int categoryId)
+        {
+            return _productRepository.GetAll().Where(p => p.CategoryId == categoryId);
+        }
     }
 }
