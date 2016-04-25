@@ -55,17 +55,22 @@ namespace SalesProject.ViewModels
         public void Handle(ProductClickedEvent message)
         {
             MySalesScreen.Cart.AddProduct(message.ProductClicked);
-            CartViewModel.CartProducts.Clear();
-            CartViewModel.CartProducts.AddRange(MySalesScreen.Cart.CartProducts);
-            CartViewModel.CartProducts.Refresh();
+            UpdateCartView();
         }
 
         public void Handle(CartProductRemovedEvent message)
         {
             MySalesScreen.Cart.RemoveProduct(message.CartProductRemoved);
+            UpdateCartView();
+        }
+
+        public void UpdateCartView()
+        {
             CartViewModel.CartProducts.Clear();
             CartViewModel.CartProducts.AddRange(MySalesScreen.Cart.CartProducts);
-            CartViewModel.CartProducts.Refresh();
+            CartViewModel.Taxes = (float) MySalesScreen.Cart.Taxes(MySalesScreen.GlobalTax);
+            CartViewModel.Subtotal = (float) MySalesScreen.Cart.Subtotal(MySalesScreen.GlobalTax);
+            CartViewModel.Refresh();
         }
     }
 

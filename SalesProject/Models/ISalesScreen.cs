@@ -7,6 +7,7 @@ namespace SalesProject.Models
 {
     public interface ISalesScreen
     {
+        double GlobalTax { get; }
         ICategoryList CategoryList { get; }
         IProductList ProductList { get; }
         ICart Cart { get; set; }

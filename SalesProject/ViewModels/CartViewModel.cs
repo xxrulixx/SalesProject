@@ -14,12 +14,17 @@ namespace SalesProject.ViewModels
         private IEventAggregator _events;
 
         public BindableCollection<Product> CartProducts { get; set; }
+        public float Taxes { get; set; }
+        public float Subtotal { get; set; }
+        
 
         public CartViewModel(IEventAggregator events)
         {
             _events = events;
             events.Subscribe(this);
             CartProducts = new BindableCollection<Product>();
+            Taxes = (float)0.00;
+            Subtotal = (float) 0.00;
         }
 
         public void ProductRemoved(Product product)

@@ -14,15 +14,21 @@ namespace SalesProject.Models
         private ICategoryRepository _categoryRepository;
         private IProductRepository _productRepository;
 
-        public ICart Cart  { get; set; }
-        
-        public ICategoryList CategoryList { get;  set; }
-        public IProductList ProductList { get;  set; }
+        public ICart Cart { get; set; }
 
-        public List<Product> VisibleProducts { get; set; } 
+        public ICategoryList CategoryList { get; set; }
+        public IProductList ProductList { get; set; }
 
-        public SalesScreen(ICategoryList categoryList, IProductList productList, ICart cart)
+        public List<Product> VisibleProducts { get; set; }
+
+        public double GlobalTax { get; set; }
+
+
+    public SalesScreen(ICategoryList categoryList, IProductList productList, ICart cart)
         {
+            //Global Tax Definition
+            GlobalTax = (float)0.07;
+
             if (categoryList == null || productList == null)
                 throw new ArgumentNullException();
 

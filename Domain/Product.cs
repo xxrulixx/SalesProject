@@ -6,6 +6,7 @@
         public int CategoryId { get;   set; }
         public float Price { get;   set; }
         public int Qty { get;   set; }
+        public float Tax { get; set; }
         public string Description { get; set; }
 
         //Navigation Property

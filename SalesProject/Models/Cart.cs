@@ -28,6 +28,7 @@ namespace SalesProject.Models
                 CartProducts.Add(cartProduct);
             }
             cartProduct.Qty++;
+
         }
 
         public void RemoveProduct(Product product)
@@ -44,18 +45,21 @@ namespace SalesProject.Models
                     CartProducts.Remove(cartProduct);
                 }
             }
-            
         }
 
-        public float Subtotal()
+        public double Taxes(double taxRate)
         {
-            return CartProducts.Sum(p => p.Price);
+          return  CartProducts.Sum(p => p.Qty*p.Price)* taxRate;
+        }
+
+        public double Subtotal(double taxRate)
+        {
+            return CartProducts.Sum(p=> p.Qty * p.Price) + Taxes(taxRate);
         }
 
         public Cart()
         {
             _cartProducts = new List<Product>();
-
         }
     }
 }

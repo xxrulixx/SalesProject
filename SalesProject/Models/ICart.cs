@@ -8,6 +8,7 @@ namespace SalesProject.Models
         List<Product> CartProducts { get; set; }
         void AddProduct(Product product);
         void RemoveProduct(Product product);
-        float Subtotal();
+        double Taxes(double taxRate);
+        double Subtotal(double taxRate);
     }
 }

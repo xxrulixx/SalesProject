@@ -11,6 +11,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -24,33 +26,33 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                             
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="40" />
-                                        <ColumnDefinition Width="40" />
-
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="30" />
                             </Grid.ColumnDefinitions>
-                           
-                                <Label Content="{Binding Name}" 
-                FontSize="12" FontWeight="Bold"
-                Foreground="#888888"
-                Grid.Column="0"/>
-                                <Label Content="{Binding Qty}" 
-                FontSize="12" FontWeight="Bold"
-                Foreground="#888888"
-                Grid.Column="1"/>
-                                <Label Content="{Binding Price}" 
-                FontSize="12" FontWeight="Bold"
-                Foreground="#888888"
-                Grid.Column="2"/>
+                            <Label Content="{Binding Name}" FontSize="12" FontWeight="Bold"
+                             Foreground="#888888" Grid.Column="0"/>
+                            <Label Content="{Binding Qty}" FontSize="12" FontWeight="Bold"
+                             Foreground="#888888" Grid.Column="1"/>
+                            <Label Content="{Binding Price}" FontSize="12" FontWeight="Bold"
+                             Foreground="#888888" Grid.Column="2"/>
                             <Button Grid.Column="3" Content="-" cal:Message.Attach="ProductRemoved($dataContext)"></Button>
                         </Grid>
                     </DataTemplate>
-
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </WrapPanel>      
+        </WrapPanel>
+        <Line Grid.Row="2" Stretch="Fill" Stroke="DarkGray" X2="1" VerticalAlignment="Top"/>
+        <Label x:Name="TaxesLabel" Content="Taxes:" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top"
+               FontWeight="Bold" Foreground="#888888"/>
+        <Label x:Name="Taxes" Content="0.00" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top"
+               FontWeight="Bold" Foreground="#888888"/>
+        <Line Grid.Row="3" Stretch="Fill" Stroke="DarkGray" X2="1" VerticalAlignment="Top"/>
+        <Label x:Name="SubtotalLabel" Content="Subtotal:" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top"
+               FontWeight="Bold" Foreground="#888888"/>
+        <Label x:Name="Subtotal" Content="0.00" HorizontalAlignment="Right" Grid.Row="3" VerticalAlignment="Top"
+               FontWeight="Bold" Foreground="#888888"/>
     </Grid>
 </UserControl>
