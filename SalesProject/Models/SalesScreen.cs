@@ -21,20 +21,20 @@ namespace SalesProject.Models
 
         public List<Product> VisibleProducts { get; set; } 
 
-        public SalesScreen(ICategoryList categoryList, IProductList productList)
+        public SalesScreen(ICategoryList categoryList, IProductList productList, ICart cart)
         {
             if (categoryList == null || productList == null)
                 throw new ArgumentNullException();
 
             CategoryList = categoryList;
             ProductList = productList;
+            Cart = cart;
         }
         public void InitializeSalesScreen()
         {
             CategoryList.LoadCategories();
             ProductList.LoadProducts();
             VisibleProducts = ProductList.Products;
-            
         }
 
         public void UpdateVisibleProducts()

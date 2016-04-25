@@ -7,6 +7,7 @@ namespace Infrastructure
     {
         ICategoryRepository Categories { get; }
         IProductRepository Products { get; }
+        IInvoiceRepository Invoices { get; }
         void Complete();
     }
 }

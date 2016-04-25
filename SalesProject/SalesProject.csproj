@@ -88,15 +88,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Events\CartProductRemovedEvent.cs" />
     <Compile Include="Events\CategoriesLoadedEvent.cs" />
     <Compile Include="CategoryClickedEvent.cs" />
+    <Compile Include="Events\ProductClickedEvent.cs" />
+    <Compile Include="ViewModels\CartItemViewModel.cs" />
+    <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\CategoryListViewModel.cs" />
     <Compile Include="ViewModels\ProductListViewModel.cs" />
-    <Compile Include="Events\ProductsLoadedEvent.cs" />
+    <Compile Include="Events\ProductLoadedEvent.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\CartItemView.xaml.cs">
+      <DependentUpon>CartItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CartView.xaml.cs">
+      <DependentUpon>CartView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductListView.xaml.cs">
       <DependentUpon>ProductListView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\CartItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CategoryListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,7 +132,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Controller\ViewController.cs" />
     <Compile Include="DependencyInjector.cs" />
     <Compile Include="Fixtures.cs" />
   </ItemGroup>
@@ -170,7 +187,9 @@
       <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controller\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

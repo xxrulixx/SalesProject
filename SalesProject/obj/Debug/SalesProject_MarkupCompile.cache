@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Development\mygithub\SalesProject\SalesProject\App.xaml
-31926913096
+5-1228698111
 
-232046178217
+282059807770
 75655798991
-Views\CategoryListView.xaml;Views\ProductListView.xaml;Views\ShellView.xaml;
+Views\CartItemView.xaml;Views\CartView.xaml;Views\CategoryListView.xaml;Views\ProductListView.xaml;Views\ShellView.xaml;
 
 False
 

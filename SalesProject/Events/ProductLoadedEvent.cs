@@ -3,11 +3,11 @@ using Domain;
 
 namespace SalesProject.Events
 {
-    public class ProductsLoadedEvent
+    public class ProductLoadedEvent
     {
         public List<Product> ProductsLoaded { get; private set; }
 
-        public ProductsLoadedEvent(List<Product> products)
+        public ProductLoadedEvent(List<Product> products)
         {
             ProductsLoaded = products;
         }

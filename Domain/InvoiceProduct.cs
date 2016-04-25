@@ -15,10 +15,10 @@ namespace Domain
         public float Tax { get;   set; }
 
         //navigation
-        public List<Invoice> Invoices { get; set; }
-        public List<Product> Products { get; set; }
+        public virtual List<Invoice> Invoices { get; set; }
+        public virtual List<Product> Products { get; set; }
 
-        protected internal InvoiceProduct()
+        public InvoiceProduct()
         {
             
         }

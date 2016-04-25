@@ -7,22 +7,22 @@ using SalesProject.Models;
 
 namespace SalesProject.ViewModels
 {
-    public class ShellViewModel : PropertyChangedBase, IHandle<CategoryClickedEvent>
+    public class ShellViewModel : PropertyChangedBase, IHandle<CategoryClickedEvent>, IHandle<ProductClickedEvent>, IHandle<CartProductRemovedEvent>
     {
         private readonly IEventAggregator _events;
         public ISalesScreen MySalesScreen;
 
         public CategoryListViewModel CategoryListViewModel { get; set; }
         public ProductListViewModel ProductListViewModel { get; set; }
-        
+        public CartViewModel CartViewModel { get; set; }
 
         public ShellViewModel(ISalesScreen mySalesScreen, CategoryListViewModel categoryListViewModel,
-                              ProductListViewModel productListViewModel, IEventAggregator events)
+                              ProductListViewModel productListViewModel, CartViewModel cartViewModel, IEventAggregator events)
         {
             MySalesScreen = mySalesScreen;
             CategoryListViewModel = categoryListViewModel;
             ProductListViewModel = productListViewModel;
-
+            CartViewModel = cartViewModel;
             _events = events;
 
             MySalesScreen.InitializeSalesScreen();
@@ -41,15 +41,31 @@ namespace SalesProject.ViewModels
         private void LoadProducts()
         {
             MySalesScreen.ProductList.LoadProducts();
-            _events.PublishOnUIThread(new ProductsLoadedEvent(MySalesScreen.ProductList.Products));
+            _events.PublishOnUIThread(new ProductLoadedEvent(MySalesScreen.ProductList.Products));
         }
 
         public void Handle(CategoryClickedEvent message)
         {
             MySalesScreen.CategoryList.ToggleSelected(message.Category);
             MySalesScreen.UpdateVisibleProducts();
-            _events.PublishOnUIThread(new ProductsLoadedEvent(MySalesScreen.VisibleProducts));
+            _events.PublishOnUIThread(new ProductLoadedEvent(MySalesScreen.VisibleProducts));
 
+        }
+
+        public void Handle(ProductClickedEvent message)
+        {
+            MySalesScreen.Cart.AddProduct(message.ProductClicked);
+            CartViewModel.CartProducts.Clear();
+            CartViewModel.CartProducts.AddRange(MySalesScreen.Cart.CartProducts);
+            CartViewModel.CartProducts.Refresh();
+        }
+
+        public void Handle(CartProductRemovedEvent message)
+        {
+            MySalesScreen.Cart.RemoveProduct(message.CartProductRemoved);
+            CartViewModel.CartProducts.Clear();
+            CartViewModel.CartProducts.AddRange(MySalesScreen.Cart.CartProducts);
+            CartViewModel.CartProducts.Refresh();
         }
     }
 

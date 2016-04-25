@@ -9,7 +9,7 @@ namespace Domain
         //navigation prop
         public List<Payment> Payment { get; set; }
 
-        protected internal PaymentType()
+        public PaymentType()
         {
             
         }

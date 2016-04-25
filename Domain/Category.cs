@@ -10,11 +10,11 @@ namespace Domain
         public bool Selected { get; set; }
         // navigation
         public virtual IList<Product> Products { get; set; }
-        protected internal Category()
+
+        public Category()
         {
             
         }
-
         public Category(int id, string name)
         {
             Id = id;

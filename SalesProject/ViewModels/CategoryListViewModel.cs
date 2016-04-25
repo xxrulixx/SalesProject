@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Controls.Primitives;
+﻿using System.Linq;
 using Caliburn.Micro;
 using Domain;
 using SalesProject.Events;
-using SalesProject.Models;
 
 namespace SalesProject.ViewModels
 {

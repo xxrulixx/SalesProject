@@ -11,9 +11,20 @@
         //Navigation Property
         public Category Category { get; set; }
 
-        protected internal Product()
+        public Product()
         {
             
+        }
+
+        public Product Clone()
+        {
+            return new Product()
+            {
+                Id = Id,
+                Name = Name,
+                Qty = 0,
+                Price = Price
+            };
         }
     }
 }

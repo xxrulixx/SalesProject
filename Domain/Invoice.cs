@@ -15,7 +15,7 @@ namespace Domain
         public virtual IList<InvoiceProduct> InvoiceProducts { get; set; }
 
 
-        protected internal Invoice()
+        public Invoice()
         {
             
         }

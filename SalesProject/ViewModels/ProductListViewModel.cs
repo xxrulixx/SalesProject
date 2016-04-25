@@ -9,7 +9,7 @@ using SalesProject.Events;
 
 namespace SalesProject.ViewModels
 {
-    public class ProductListViewModel : PropertyChangedBase, IHandle<ProductsLoadedEvent>
+    public class ProductListViewModel : PropertyChangedBase, IHandle<ProductLoadedEvent>
     {
         private IEventAggregator _events;
 
@@ -21,10 +21,16 @@ namespace SalesProject.ViewModels
             events.Subscribe(this);
         }
 
-        public void Handle(ProductsLoadedEvent message)
+        public void Handle(ProductLoadedEvent message)
         {
            Products = new BindableCollection<Product>(message.ProductsLoaded.ToList());
            NotifyOfPropertyChange(() => Products);
+        }
+
+        public void ProductClicked(Product product)
+        {
+            _events.PublishOnUIThread(new ProductClickedEvent(product));
+            
         }
     }
 }

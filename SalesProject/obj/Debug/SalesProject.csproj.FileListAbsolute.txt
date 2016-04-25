@@ -57,3 +57,7 @@ C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\CategoryListVi
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\CategoryListView.baml
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\ProductListView.g.cs
 C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\ProductListView.baml
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\CartView.g.cs
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\CartView.baml
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\CartItemView.g.cs
+C:\Development\mygithub\SalesProject\SalesProject\obj\Debug\Views\CartItemView.baml

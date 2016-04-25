@@ -44,19 +44,19 @@ namespace Test.Nspec.Debugging
             {
                 it["both parameters null or uninitialized should throw an exception"] = () =>
                 {
-                    Action action = () => new SalesScreen(null, null);
+                    Action action = () => new SalesScreen(null, null, null);
                     action.ShouldThrow<ArgumentNullException>();
                 };
 
                 it["first parameter null or uninitialized should throw an exception"] = () =>
                 {
-                    Action action = () => new SalesScreen(null, _productListMock.Object);
+                    Action action = () => new SalesScreen(null, _productListMock.Object, null);
                     action.ShouldThrow<ArgumentNullException>();
                 };
 
                 it["second parameter null or uninitialized should throw an exception"] = () =>
                 {
-                    Action action = () => new SalesScreen(_categoryListMock.Object, null);
+                    Action action = () => new SalesScreen(_categoryListMock.Object, null, null);
                     action.ShouldThrow<ArgumentNullException>();
                 };
             };
@@ -66,7 +66,7 @@ namespace Test.Nspec.Debugging
         {
             before = () =>
             {
-                salesScreen = new SalesScreen(_categoryListMock.Object, _productListMock.Object);
+                salesScreen = new SalesScreen(_categoryListMock.Object, _productListMock.Object, null);
                 salesScreen.InitializeSalesScreen();
             };
 

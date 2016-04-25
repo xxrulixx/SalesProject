@@ -30,11 +30,15 @@ namespace SalesProject
             Container.Register<ICategoryList, CategoryList>();
             Container.Register<IProductList, ProductList>();
             Container.Register<ISalesScreen, SalesScreen>();
+            Container.Register<ICart, Cart>();
 
             Container.RegisterSingleton<IWindowManager, WindowManager>();
             Container.RegisterSingleton<IEventAggregator, EventAggregator>();
 
             Container.Register<CategoryListViewModel>();
+            Container.Register<ProductListViewModel>();
+            Container.Register<CartViewModel>();
+            Container.Register<CartItemViewModel>();
 
 
         }

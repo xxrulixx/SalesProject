@@ -12,6 +12,7 @@ namespace Infrastructure
         
         public ICategoryRepository Categories { get; }
         public IProductRepository Products { get; }
+        public IInvoiceRepository Invoices { get; }
         public void Complete()
         {
             _context.SaveChanges();
@@ -22,6 +23,7 @@ namespace Infrastructure
             _context = context;
             Products = new ProductRepository(_context);
             Categories = new CategoryRepository(_context);
+            Invoices = new InvoiceRepository(_context);
         }
     }
 }
