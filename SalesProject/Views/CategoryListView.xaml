@@ -20,11 +20,12 @@
                 Foreground="#888888"
                 Grid.Column="0" Grid.Row="0"/>
         <WrapPanel x:Name="CategoriesPanel" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
-            <ScrollViewer x:Name="CategoriesScrollViewer" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <ScrollViewer x:Name="CategoriesScrollViewer" HorizontalAlignment="Right" VerticalAlignment="Top" VerticalScrollBarVisibility="Hidden">
                 <ItemsControl ItemsSource="{Binding Categories}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <ToggleButton Content="{Binding Name}" cal:Message.Attach="CategoryClicked($dataContext)" />
+                            <ToggleButton Content="{Binding Name}" cal:Message.Attach="CategoryClicked($dataContext)" 
+                                          Style="{StaticResource SalesToggleButton}"/>
                         </DataTemplate>
 
                     </ItemsControl.ItemTemplate>

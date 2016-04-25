@@ -6,9 +6,54 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <salesProject:AppBootstrapper x:Key="bootstrapper" />
+                    <salesProject:AppBootstrapper x:Key="Bootstrapper" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="SalesToggleButton" TargetType="ToggleButton">
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Border Name="border" BorderThickness="3" BorderBrush="#555555" Background="#888888" Margin="2">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8" />
+                                    <Setter Property="Background" Value="#666666" />
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Opacity" Value="0.6" />
+                                    <Setter Property="Background" Value="#666666" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+
+            <Style x:Key="SalesButton" TargetType="Button">
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Name="border" BorderThickness="3" BorderBrush="#555555" Background="#888888" Margin="2">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8" />
+                                    <Setter Property="Background" Value="#666666" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+
         </ResourceDictionary>
+       
     </Application.Resources>
 </Application>

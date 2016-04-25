@@ -19,18 +19,28 @@
                 FontSize="12" FontWeight="Bold"
                 Foreground="#888888"
                 Grid.Column="0" Grid.Row="0" />
-        <WrapPanel x:Name="ProductsPanel" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top">
-            <ScrollViewer x:Name="ProductsScrollViewer" HorizontalAlignment="Right" VerticalAlignment="Top">
+        
+        <ScrollViewer  Grid.Row="1" x:Name="ProductsScrollViewer" HorizontalAlignment="Right" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" >
+            
                 <ItemsControl ItemsSource="{Binding Products}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding Name}" cal:Message.Attach="ProductClicked($dataContext)" />
+                            <Button Content="{Binding Name}" 
+                                    Width="80" Height="80" Margin="2"
+                                    cal:Message.Attach="ProductClicked($dataContext)" 
+                                    Style="{StaticResource SalesButton}" />
                         </DataTemplate>
 
                     </ItemsControl.ItemTemplate>
 
                 </ItemsControl>
-            </ScrollViewer>
-        </WrapPanel>
+        </ScrollViewer>
+        
     </Grid>
 </UserControl>

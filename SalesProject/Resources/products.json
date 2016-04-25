@@ -4,41 +4,47 @@
     "Id": "1",
     "Name": "Laptop",
     "Price": "500.00",
-    "Qty": "3"
+    "Qty": "3",
+    "Description" :  "Tohiba Core i7 12 Gb Ram 1Tb HDD"
   },
   {
     "CategoryId": "2",
     "Id": "2",
     "Name": "Kitchen",
     "Price": "600",
-    "Qty": "5"
+    "Qty": "5",
+    "Description":  "4 kitchens with oven"
   },
   {
     "CategoryId": "3",
     "Id": "3",
     "Name": "Ball",
     "Price": "20",
-    "Qty": "5"
+    "Qty": "5",
+    "Description":  "Baseball accsesory ideal for your childs"
   },
   {
     "CategoryId": "1",
     "Id": 4,
     "Name": "Mouse",
     "Price": "15",
-    "Qty": "10"
+    "Qty": "10",
+    "Description":  "Desktop or Laptop accesory... Logitech is the Brand"
   },
   {
     "CategoryId": "2",
     "Id": 5,
     "Name": "Freezer",
     "Price": "1200",
-    "Qty": "6"
+    "Qty": "6",
+    "Description": "Whirepool Freezer 36 ft stanlies steel..."
   },
   {
     "CategoryId": "3",
     "Id": 6,
     "Name": "Bat",
     "Price": "39",
-    "Qty": "50"
+    "Qty": "50",
+    "Description": "Baseball accesory... your child will love it" 
   }
 ]
